@@ -30,12 +30,12 @@ jobs:
         ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
         ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
       run: |
-        #echo "Processo: sshpass [...]"
-        #sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no $ZOWE_USERNAME@204.90.115.200 'sh -s' < .github/scripts/mainframe_operations.sh
-        #echo "Processo: chmod +x .github/scripts/mainframe_operations.sh"
-        #chmod +x .github/scripts/mainframe_operations.sh
-        #echo "Processo: .github/scripts/mainframe_operations.sh"
-        #.github/scripts/mainframe_operations.sh
+        echo "Processo: sshpass [...]"
+        sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no $ZOWE_USERNAME@204.90.115.200 'sh -s' < .github/scripts/mainframe_operations.sh
+        echo "Processo: chmod +x .github/scripts/mainframe_operations.sh"
+        chmod +x .github/scripts/mainframe_operations.sh
+        echo "Processo: .github/scripts/mainframe_operations.sh"
+        .github/scripts/mainframe_operations.sh
         echo "Processo: chmod +x .github/scripts/zowe_operations.sh"
         chmod +x .github/scripts/zowe_operations.sh
         echo "Processo: .github/scripts/zowe_operations.sh"
