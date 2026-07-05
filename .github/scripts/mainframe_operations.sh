@@ -33,6 +33,12 @@ run_cobolcheck() {
   program=$1
   echo "Running cobolcheck for $program"
 
+  if [ -f "cobolcheck" ]; then
+    echo "run_cobolcheck(): cobolcheck -> EXISTE"
+  else
+    echo "run_cobolcheck(): cobolcheck -> NAO existe"
+  fi
+
   # Run cobolcheck, but don't exit if it fails
   ./cobolcheck -p $program
   echo "Cobolcheck execution completed for $program (exceptions may have occurred)"
