@@ -1,3 +1,7 @@
 #!/bin/sh
+<<<<<<< HEAD
 #adicionada versao explicita do cobol-check
+=======
+
+>>>>>>> c8395a0 (Force action run)
 java -jar bin/cobol-check-0.2.19.jar $@
