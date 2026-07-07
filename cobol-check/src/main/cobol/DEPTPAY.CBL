@@ -26,7 +26,7 @@
                 (DEPT-TOTAL-SALARIES / DEPT-NBR-EMPS).
       *****
        DISPLAY-DETAILS.
-           DISPLAY "Department Name: " DEPT-NAME.
+           DISPLAY "Department Name : " DEPT-NAME.
            DISPLAY "Department Location: " DEPT-LOC.
            DISPLAY "Manager FNAME: " MANAGER-FNAME.
            DISPLAY "Manager NAME: " MANAGER-FNAME.
