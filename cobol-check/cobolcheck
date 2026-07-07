@@ -1,2 +1,3 @@
 #!/bin/sh
+#adicionada versao explicita do cobol-check
 java -jar bin/cobol-check-0.2.19.jar $@
