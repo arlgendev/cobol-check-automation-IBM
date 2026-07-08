@@ -14,8 +14,8 @@ java -version
 Z_UN="Z74881"  # Replace with your actual username
 echo "cru -> Z74881"
 echo "Z_UN -> $Z_UN"
-
-printf "Com printf: %s\n" "$Z_UN"
+# provavelmente ultimo teste
+printf "Com printf: %s\n" "Z74881"
 
 # Change to the cobolcheck directory
 cd cobolcheck
