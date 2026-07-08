@@ -46,6 +46,14 @@ run_cobolcheck() {
   # Note: The "CC##99.CBL" file name below is NOT a placeholder
   # Keep it as is in the code
 
+  echo "Checking variable after this point: "
+  FULLCBL="//'$ZOWE_USERNAME.CBL($program)'"
+  FULLJCL="//'$ZOWE_USERNAME.JCL($program)'"
+  echo "ZOWE_USERNAME -> $ZOWE_USERNAME"
+  echo "program       -> $program"
+  echo "FULLCBL       -> $FULLCBL"
+  echo "FULLJCL       -> $FULLJCL"
+  
   # Check if CC##99.CBL was created, regardless of cobolcheck exit status
   if [ -f "testruns/CC##99.CBL" ]; then
     # Copy to the MVS dataset
