@@ -17,6 +17,13 @@ echo "Z_UN -> $Z_UN"
 # provavelmente ultimo teste
 printf "Com printf: %s\n" "Z74881"
 
+# Teste de comparação
+if [ "$Z_UN" = "Z74881" ]; then
+    echo "Comparação funcionou!"
+else
+    echo "Comparação falhou!"
+fi
+
 # Change to the cobolcheck directory
 cd cobolcheck
 echo "Changed to $(pwd)"
