@@ -10,19 +10,8 @@ export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 # Check Java availability
 java -version
 
-# Set Z_UN
-Z_UN="Z74881"  # Replace with your actual username
-echo "cru -> Z74881"
-echo "Z_UN -> $Z_UN"
-# provavelmente ultimo teste
-printf "Com printf: %s\n" "Z74881"
-
-# Teste de comparação
-if [ "$Z_UN" = "Z74881" ]; then
-    echo "Comparação funcionou!"
-else
-    echo "Comparação falhou!"
-fi
+# Set ZOWE_USERNAME
+ZOWE_USERNAME="Z74881"  # Replace with your actual username
 
 # Change to the cobolcheck directory
 cd cobolcheck
@@ -56,22 +45,14 @@ run_cobolcheck() {
 
   # Note: The "CC##99.CBL" file name below is NOT a placeholder
   # Keep it as is in the code
-
-  echo "Checking variable after this point: "
-  FULLCBL="//'$Z_UN.CBL($program)'"
-  FULLJCL="//'$Z_UN.JCL($program)'"
-  echo "Z_UN    -> $Z_UN"
-  echo "program -> $program"
-  echo "FULLCBL -> $FULLCBL"
-  echo "FULLJCL -> $FULLJCL"
   
   # Check if CC##99.CBL was created, regardless of cobolcheck exit status
   if [ -f "testruns/CC##99.CBL" ]; then
     # Copy to the MVS dataset
-    if cp testruns/CC##99.CBL "//'${Z_UN}.CBL($program)'"; then
-      echo "Copied CC##99.CBL to $Z_UN.CBL($program)"
+    if cp "testruns/CC##99.CBL" "//'${ZOWE_USERNAME}.CBL($program)'"; then
+      echo "Copied CC##99.CBL to $ZOWE_USERNAME.CBL($program)"
     else
-      echo "Failed to copy CC##99.CBL to $Z_UN.CBL($program)"
+      echo "Failed to copy CC##99.CBL to $ZOWE_USERNAME.CBL($program)"
     fi
   else
     echo "CC##99.CBL not found for $program"
@@ -79,13 +60,13 @@ run_cobolcheck() {
 
   # Copy the JCL file if it exists
   if [ -f "${program}.JCL" ]; then
-    if cp ${program}.JCL "//'$Z_UN.JCL($program)'"; then
-      echo "Copied ${program}.JCL to $Z_UN.JCL($program)"
+    if cp ${program}.JCL "//'$ZOWE_USERNAME.JCL($program)'"; then
+      echo "Copied ${program}.JCL to $ZOWE_USERNAME.JCL($program)"
       # Submit job to run testing version of the program
       submit ${program}.JCL
       echo "Submitted job ${program}.JCL"
     else
-      echo "Failed to copy ${program}.JCL to $Z_UN.JCL($program)"
+      echo "Failed to copy ${program}.JCL to $ZOWE_USERNAME.JCL($program)"
     fi
   else
     echo "${program}.JCL not found"
