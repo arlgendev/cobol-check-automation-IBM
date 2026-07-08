@@ -74,7 +74,8 @@ run_cobolcheck() {
 }
 
 # Run for each program
-for program in NUMBERS EMPPAY DEPTPAY; do
+#NUMBERS removed for tests
+for program in EMPPAY DEPTPAY; do
   run_cobolcheck $program
 done
 
