@@ -12,7 +12,7 @@ java -version
 
 # Set Z_UN
 Z_UN="Z74881"  # Replace with your actual username
-
+echo "cru -> Z74881"
 echo "Z_UN -> $Z_UN"
 
 # Change to the cobolcheck directory
