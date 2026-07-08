@@ -50,9 +50,9 @@ run_cobolcheck() {
   if [ -f "testruns/CC##99.CBL" ]; then
     # Copy to the MVS dataset
     if cp testruns/CC##99.CBL "//'${ZOWE_USERNAME}.CBL($program)'"; then
-      echo "Copied CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
+      echo "Copied CC##99.CBL to $ZOWE_USERNAME.CBL($program)"
     else
-      echo "Failed to copy CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
+      echo "Failed to copy CC##99.CBL to $ZOWE_USERNAME.CBL($program)"
     fi
   else
     echo "CC##99.CBL not found for $program"
@@ -60,13 +60,13 @@ run_cobolcheck() {
 
   # Copy the JCL file if it exists
   if [ -f "${program}.JCL" ]; then
-    if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
-      echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
+    if cp ${program}.JCL "//'$ZOWE_USERNAME.JCL($program)'"; then
+      echo "Copied ${program}.JCL to $ZOWE_USERNAME.JCL($program)"
       # Submit job to run testing version of the program
       submit ${program}.JCL
       echo "Submitted job ${program}.JCL"
     else
-      echo "Failed to copy ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
+      echo "Failed to copy ${program}.JCL to $ZOWE_USERNAME.JCL($program)"
     fi
   else
     echo "${program}.JCL not found"
